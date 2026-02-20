@@ -551,37 +551,228 @@ section.appear, .fullscreen-section.appear {
 
 /* responsive adjustments */
 @media (max-width: 800px) {
+    /* Header improvements for mobile */
+    header {
+        padding: 8px 12px;
+        flex-wrap: wrap;
+    }
+    
+    .search-container {
+        margin-right: 10px;
+        width: 100%;
+        order: 3;
+        margin-top: 8px;
+    }
+    
+    #search-input {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+    
+    #search-input:focus {
+        width: 100%;
+    }
+    
+    /* Navigation menu for mobile */
     #menu-toggle {
         display: block;
+        padding: 8px;
+        min-width: 44px;
+        min-height: 44px;
     }
-    nav {
+    
+    #main-nav {
         flex-direction: column;
         background: #ffffff;
         position: absolute;
         top: 60px;
-        right: 20px;
+        right: 0;
+        left: 0;
         padding: 10px;
-        border-radius: 4px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        width: 100%;
+        gap: 8px;
     }
+    
+    #main-nav a {
+        padding: 12px 16px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        font-size: 1em;
+    }
+    
     nav a {
         margin-left: 0;
-        margin-bottom: 10px;
+        margin-bottom: 0;
     }
+    
+    /* Container & layout */
     .container {
-        flex-direction: column;
+        padding: 12px;
+        border-radius: 0;
     }
-    /* aside rules removed as sidebar no longer used */
+    
+    /* Typography scaling */
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    h2 {
+        font-size: 1.3em;
+    }
+    
+    p {
+        font-size: 1em;
+    }
+    
+    .fullscreen-section h1 {
+        font-size: 1.8em;
+    }
+    
+    .fullscreen-section p {
+        font-size: 1.1em;
+    }
+    
+    /* Gallery improvements */
+    .gallery {
+        column-count: 2;
+        column-gap: 40px;
+        padding: 0 0.5rem;
+    }
+    
+    .gallery .photo {
+        margin-bottom: 40px;
+    }
+    
+    .gallery .photo.small img { height: 140px; }
+    .gallery .photo.medium img { height: 200px; }
+    .gallery .photo.large img { height: 280px; }
+    
+    /* Upload form improvements */
+    .upload-form {
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .upload-form label.file-label,
+    .upload-form .upload-btn,
+    .confirm-actions .upload-btn {
+        padding: 12px 16px;
+        font-size: 1em;
+        min-height: 44px;
+        flex: 1 1 auto;
+        min-width: 120px;
+    }
+    
+    /* Modal improvements for mobile */
+    .confirm-modal {
+        width: 90vw;
+        max-width: 100%;
+        padding: 1rem;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .confirm-modal p {
+        font-size: 1em;
+    }
+    
+    .confirm-actions {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .confirm-actions .upload-btn {
+        flex: 1;
+        min-width: 90px;
+    }
 }
+
+@media (max-width: 600px) {
+    header {
+        padding: 8px 8px;
+    }
+    
+    .search-container {
+        margin-right: 0;
+    }
+    
+    #search-input {
+        font-size: 16px;
+        padding: 10px 12px;
+    }
+    
+    #main-nav {
+        top: 50px;
+    }
+    
+    #main-nav a {
+        font-size: 0.95em;
+        padding: 10px 12px;
+    }
+    
     .container {
+        padding: 8px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    h2 {
+        font-size: 1.1em;
+    }
+    
+    p {
+        font-size: 0.95em;
+    }
+    
+    .gallery {
+        column-count: 1;
+        column-gap: 20px;
+        padding: 0;
+    }
+    
+    .gallery .photo {
+        margin-bottom: 20px;
+    }
+    
+    .gallery .photo.small img { height: 120px; }
+    .gallery .photo.medium img { height: 180px; }
+    .gallery .photo.large img { height: 240px; }
+    
+    .upload-form {
         flex-direction: column;
     }
-    nav {
-        flex-direction: column;
-        margin-top: 10px;
+    
+    .upload-form label.file-label,
+    .upload-form .upload-btn,
+    .confirm-actions .upload-btn {
+        width: 100%;
+        padding: 12px 12px;
+        font-size: 1em;
     }
-    nav a {
-        margin-left: 0;
-        margin-bottom: 5px;
+    
+    .fullscreen-section {
+        height: auto;
+        min-height: 80vh;
+        padding: 1rem;
+    }
+    
+    .fullscreen-section h1 {
+        font-size: 1.4em;
+    }
+    
+    .fullscreen-section p {
+        font-size: 1em;
+    }
+    
+    .confirm-modal {
+        width: 95vw;
+        padding: 0.8rem;
     }
 }
