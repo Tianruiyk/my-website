@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="max-width:600px;margin:40px auto;">
+  <h1>Offline Games</h1>
+  <p>I love to play offline games like Snake or the no-internet Google dinosaur game.</p>
+  <h2>Snake Game</h2>
+  <div id="snake-container" style="background:#222;width:400px;height:400px;margin:auto;position:relative;"></div>
+  <div style="text-align:center;margin-top:10px;">
+    <button onclick="startSnakeGame()">Start Snake</button>
+    <span id="snake-score" style="margin-left:20px;color:#fff;"></span>
+  </div>
+  <div style="text-align:center;margin-top:18px;">
+    <a href="https://www.google.com/search?q=google+snake&rlz=1C5AJCO_enCA1200CA1200&oq=google+snake&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORixAxiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiPAjIHCAkQABiPAtIBCDE5NTVqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer" style="font-size:1.15em;color:#388E3C;text-decoration:underline;">Play the official Google Snake game</a>
+  </div>
+  <script src="{{ url_for('static', filename='js/snake.js') }}"></script>
+</div>
+{% endblock %}

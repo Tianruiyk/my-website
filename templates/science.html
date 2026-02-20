@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<button class="back-btn" onclick="history.back()">← Back</button>
+<h1>Pre‑IB Science Notes</h1>
+<p>Choose a subject to view/upload image notes:</p>
+<ul class="notes-list">
+    <li><a href="{{ url_for('science_gallery', subject='physics') }}">Physics Notes</a></li>
+    <li><a href="{{ url_for('science_gallery', subject='bio') }}">Biology Notes</a></li>
+    <li><a href="{{ url_for('science_gallery', subject='chem') }}">Chemistry Notes</a></li>
+</ul>
+{% endblock %}

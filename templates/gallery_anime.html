@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<button class="back-btn" onclick="history.back()">← Back</button>
+<h1>Richard Ma's Anime Gallery</h1>
+<form class="upload-form" action="{{ url_for('upload_gallery_anime') }}" method="post" enctype="multipart/form-data" data-photo-post-form="true">
+    <input type="file" id="anime-gallery-file" name="file" accept="image/*" required />
+    <label for="anime-gallery-file" class="file-label">Choose Photo</label>
+    <button type="submit" class="upload-btn reveal-on-file">Post Photo</button>
+</form>
+<div class="gallery">
+    {% for img in images %}
+    <div class="photo {{ img.size }}">
+        <img src="{{ url_for('static', filename='images/gallery/anime/' + img.filename) }}" alt="{{ img.filename }}" />
+        {% if delete_endpoint %}
+        <form class="upload-form" action="{{ url_for(delete_endpoint, filename=img.filename) }}" method="post" data-double-confirm="true">
+            <button type="submit" class="upload-btn">Delete Photo</button>
+        </form>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

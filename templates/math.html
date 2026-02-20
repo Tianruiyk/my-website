@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<button class="back-btn" onclick="history.back()">← Back</button>
+<h1>Pre‑IB Math Notes</h1>
+<p>Select a topic to view/upload image notes:</p>
+<ul class="notes-list">
+    <li><a href="{{ url_for('math_gallery', subject='linear-quadratic-functions') }}">Linear &amp; Quadratic Functions</a></li>
+    <li><a href="{{ url_for('math_gallery', subject='radicals') }}">Radicals</a></li>
+    <li><a href="{{ url_for('math_gallery', subject='systems-of-equations') }}">Systems of Equations</a></li>
+    <li><a href="{{ url_for('math_gallery', subject='trigonometry') }}">Trigonometry</a></li>
+    <li><a href="{{ url_for('math_gallery', subject='finance') }}">Finance</a></li>
+    <li><a href="{{ url_for('math_gallery', subject='rational-expressions-equations') }}">Rational Expressions &amp; Equations</a></li>
+    <li><a href="{{ url_for('math_gallery', subject='inequalities') }}">Inequalities</a></li>
+</ul>
+{% endblock %}

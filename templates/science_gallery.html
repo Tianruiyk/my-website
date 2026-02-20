@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<button class="back-btn" onclick="history.back()">← Back</button>
+<h1>{{ subject|capitalize }} Notes</h1>
+<form class="upload-form" action="{{ url_for('upload_notes', category=category, subject=subject) }}" method="post" enctype="multipart/form-data" data-photo-post-form="true">
+    <input type="file" id="science-notes-file" name="file" accept="image/*" required />
+    <label for="science-notes-file" class="file-label">Choose Photo</label>
+    <button type="submit" class="upload-btn reveal-on-file">Post Photo</button>
+</form>
+<form class="upload-form" action="{{ url_for('upload_docs', category=category, subject=subject) }}" method="post" enctype="multipart/form-data" data-photo-post-form="true">
+    <input type="file" id="science-docs-file" name="file" accept="application/pdf" required />
+    <label for="science-docs-file" class="file-label">Choose PDF</label>
+    <button type="submit" class="upload-btn reveal-on-file">Upload teacher PDF</button>
+</form>
+<div class="gallery">
+    {% for img in images %}
+    <div class="photo {{ img.size }}">
+        <img src="{{ url_for('static', filename='images/notes/' + category + '/' + subject + '/' + img.filename) }}" alt="{{ img.filename }}" />
+        <form class="upload-form" action="{{ url_for('delete_notes_image', category=category, subject=subject, filename=img.filename) }}" method="post" data-double-confirm="true">
+            <button type="submit" class="upload-btn">Delete Photo</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% if teacher_pdfs %}
+<hr />
+<h2>Teacher PDFs</h2>
+<ul class="pdf-list">
+    {% for pdf in teacher_pdfs %}
+    <li>
+        <a href="{{ url_for('static', filename='docs/' + ('science/' if request.path.startswith('/science') else 'math/') + subject + '/' + pdf) }}" target="_blank">{{ pdf }}</a>
+        <form class="upload-form" action="{{ url_for('delete_docs_file', category=category, subject=subject, filename=pdf) }}" method="post" data-double-confirm="true">
+            <button type="submit" class="upload-btn">Delete PDF</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

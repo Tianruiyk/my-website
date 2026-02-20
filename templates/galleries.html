@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Photo & Anime Galleries</h1>
+<p>Welcome to my dedicated gallery page! Here you can browse both my regular and anime photo galleries.</p>
+<ul>
+    <li><a href="{{ url_for('gallery') }}">Photo Gallery</a></li>
+    <li><a href="{{ url_for('gallery_anime') }}">Anime Gallery</a></li>
+</ul>
+{% endblock %}

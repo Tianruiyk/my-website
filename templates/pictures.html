@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>1.4 Picture Galleries</h1>
+<p>Explore my collections below:</p>
+<ul>
+    <li><a href="{{ url_for('my_photos') }}">My Photos</a></li>
+    <li><a href="{{ url_for('random_photos') }}">Random Photos</a></li>
+    <li><a href="{{ url_for('gallery_anime') }}">Anime Gallery</a></li>
+</ul>
+{% endblock %}
